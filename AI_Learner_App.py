@@ -59,3 +59,10 @@ if st.button("💾 Voortgang opslaan"):
     st.success("Voortgang opgeslagen!")
 
 st.write("🚀 Blijf experimenteren en leren!")
+
+# Upload-knop voor CSV-bestanden
+uploaded_file = st.file_uploader("📂 Upload je leerplan CSV", type=["csv"])
+if uploaded_file is not None:
+    df = pd.read_csv(uploaded_file)
+    df.to_csv("ai_learning_progress.csv", index=False)
+    st.success("✅ Leerplan geüpload en opgeslagen!")
